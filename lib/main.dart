@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 void main() {
   runApp(const MyApp());
 }
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
           // or simply save your changes to "hot reload" in a Flutter IDE).
           // Notice that the counter didn't reset back to zero; the application
           // is not restarted.
-        brightness: Brightness.dark,
+          brightness: Brightness.dark,
           primarySwatch: const MaterialColor(0xFF6cb44b, <int, Color>{
             50: Color(0xFFEDF6E9),
             100: Color(0xFFD3E9C9),
@@ -40,7 +41,8 @@ class MyApp extends StatelessWidget {
                   bodyText1: TextStyle(),
                   bodyText2: TextStyle(),
                   headline1: TextStyle(fontSize: 60),
-                  headline4: TextStyle())
+                  headline4: TextStyle(),
+                  headline5: TextStyle(fontSize: 20))
               .apply(
             bodyColor: const Color(0xFFF9F9F9),
             displayColor: const Color(0xFFF9F9F9),
@@ -69,7 +71,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -90,34 +91,59 @@ class _MyHomePageState extends State<MyHomePage> {
           // horizontal).
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
-            Text(
-              'Bonjour',
-              style: Theme.of(context).textTheme.headline1,
-            ),
-            Column(
-              children: [
-                Text(
-                  'Bienvenue dans Yatt',
-                  style: Theme.of(context).textTheme.headline4,
-                ),
-                Text(
-                  "Configurons l'application ensemble",
-                  style: Theme.of(context).textTheme.headline5,
-                ),
-              ],
-            ),
-            TextButton(
-              style: TextButton.styleFrom(
-                backgroundColor: Colors.green.shade50,
-                textStyle: TextStyle(fontSize: 20)
+            SizedBox(
+              height: 350,
+              width: 400,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Text(
+                    'Bonjour',
+                    style: Theme.of(context).textTheme.headline1,
+                  ),
+                  Column(
+                    children: [
+                      Text(
+                        'Bienvenue dans Yatt',
+                        style: Theme.of(context).textTheme.headline4,
+                      ),
+                      Text(
+                        "Configurons l'application ensemble",
+                        style: Theme.of(context).textTheme.headline5,
+                      ),
+                    ],
+                  ),
+                ],
               ),
-              onPressed: () { },
-              child: const Text("Commencer"),
             ),
+            SizedBox(
+                height: 120,
+                width: 200,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                          minimumSize: const Size.fromHeight(40),
+                          backgroundColor: Colors.green.shade900),
+                      onPressed: () {},
+                      child: Text("Mode Auto",
+                          style: Theme.of(context).textTheme.bodyMedium),
+                    ),
+                    ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                          minimumSize: const Size.fromHeight(40),
+                          backgroundColor: Colors.green.shade900),
+                      onPressed: () {},
+                      child: Text(
+                          "Mode Manuel",
+                      style: Theme.of(context).textTheme.bodyMedium,),
+                    ),
+                  ],
+                )),
           ],
         ),
       ),
     );
   }
 }
-
