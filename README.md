@@ -1,4 +1,4 @@
-# yatt
+# Yatt
 
 A new Flutter project.
 
