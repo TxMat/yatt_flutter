@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'auto_login.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -13,15 +15,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Yatt',
       theme: ThemeData(
-          // This is the theme of your application.
-          //
-          // Try running your application with "flutter run". You'll see the
-          // application has a blue toolbar. Then, without quitting the app, try
-          // changing the primarySwatch below to Colors.green and then invoke
-          // "hot reload" (press "r" in the console where you ran "flutter run",
-          // or simply save your changes to "hot reload" in a Flutter IDE).
-          // Notice that the counter didn't reset back to zero; the application
-          // is not restarted.
           brightness: Brightness.dark,
           primarySwatch: const MaterialColor(0xFF6cb44b, <int, Color>{
             50: Color(0xFFEDF6E9),
@@ -123,25 +116,27 @@ class _MyHomePageState extends State<MyHomePage> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     ElevatedButton(
-                      style: ElevatedButton.styleFrom(
+                        style: ElevatedButton.styleFrom(
                           minimumSize: const Size.fromHeight(40),
-                          backgroundColor: Colors.green.shade900),
+                        ),
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const AutoRoute()));
+                        },
+                        child: const Text("Mode Auto")),
+                    ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        minimumSize: const Size.fromHeight(40),
+                      ),
                       onPressed: () {
-                        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                        ScaffoldMessenger.of(context)
+                            .showSnackBar(const SnackBar(
                           content: Text("Not Available"),
                         ));
                       },
-                      child: Text("Mode Auto",
-                          style: Theme.of(context).textTheme.bodyMedium),
-                    ),
-                    ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                          minimumSize: const Size.fromHeight(40),
-                          backgroundColor: Colors.green.shade900),
-                      onPressed: () { },
-                      child: Text(
-                          "Mode Manuel",
-                      style: Theme.of(context).textTheme.bodyMedium,),
+                      child: const Text("Mode Manuel"),
                     ),
                   ],
                 )),
