@@ -126,7 +126,11 @@ class _MyHomePageState extends State<MyHomePage> {
                       style: ElevatedButton.styleFrom(
                           minimumSize: const Size.fromHeight(40),
                           backgroundColor: Colors.green.shade900),
-                      onPressed: () {},
+                      onPressed: () {
+                        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                          content: Text("Not Available"),
+                        ));
+                      },
                       child: Text("Mode Auto",
                           style: Theme.of(context).textTheme.bodyMedium),
                     ),
@@ -134,7 +138,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       style: ElevatedButton.styleFrom(
                           minimumSize: const Size.fromHeight(40),
                           backgroundColor: Colors.green.shade900),
-                      onPressed: () {},
+                      onPressed: () { },
                       child: Text(
                           "Mode Manuel",
                       style: Theme.of(context).textTheme.bodyMedium,),
