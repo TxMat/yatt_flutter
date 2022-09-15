@@ -15,7 +15,7 @@ void main() async {
     appSecretIOS: "8109e875-3b0a-4f72-882e-84fa9947e630",
     enableAnalytics: true,
     enableCrashes: true,
-    enableDistribute: false,
+    enableDistribute: true,
     usePrivateDistributeTrack: false,
     disableAutomaticCheckForUpdate: false,
   );
