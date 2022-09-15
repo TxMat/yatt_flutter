@@ -3,7 +3,22 @@ import 'package:flutter/services.dart';
 
 import 'auto_login.dart';
 
-void main() {
+
+import 'package:flutter_appcenter_bundle/flutter_appcenter_bundle.dart';
+
+
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await AppCenter.startAsync(
+    appSecretAndroid: "991e68d2-101e-4136-bd1c-1c9f9a904773",
+    appSecretIOS: "8109e875-3b0a-4f72-882e-84fa9947e630",
+    enableAnalytics: true,
+    enableCrashes: true,
+    enableDistribute: false,
+    usePrivateDistributeTrack: false,
+    disableAutomaticCheckForUpdate: false,
+  );
   runApp(const MyApp());
 }
 
